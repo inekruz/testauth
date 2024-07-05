@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Authorization from './Pages/Authorization';
 import Main from './Pages/Main';
@@ -11,20 +11,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Switch>
-          <Route path="/login">
-            <Authorization setUserAuthenticated={setAuthenticated} />
-          </Route>
-          <Route path="/main">
-            {authenticated ? <Main /> : <Redirect to="/login" />}
-          </Route>
-          <Route path="/add-post">
-            {authenticated ? <AddPost /> : <Redirect to="/login" />}
-          </Route>
-          <Route path="/">
-            <Redirect to="/login" />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/login" element={<Authorization setUserAuthenticated={setAuthenticated} />} />
+          <Route path="/main" element={authenticated ? <Main /> : <Navigate to="/login" />} />
+          <Route path="/add-post" element={authenticated ? <AddPost /> : <Navigate to="/login" />} />
+          <Route path="/" element={<Navigate to="/login" />} />
+        </Routes>
       </div>
     </Router>
   );
