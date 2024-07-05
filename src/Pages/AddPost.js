@@ -14,7 +14,7 @@ function AddPost() {
         content: data.content,
         slug: 'default-slug',
         picture: 'https://default-image-url.com',
-        user: 1 // Default user ID
+        user: 1
       };
       const response = await axios.post('https://freefakeapi.io/authapi/posts', postData, {
         headers: {
@@ -22,9 +22,8 @@ function AddPost() {
         }
       });
       console.log(response.data);
-      // Перенаправить или показать сообщение об успешном добавлении
     } catch (error) {
-      console.error('Ошибка при добавлении поста:', error);
+      console.error('Ошибка:', error);
     }
   };
 

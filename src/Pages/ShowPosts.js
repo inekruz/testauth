@@ -11,7 +11,7 @@ function Posts() {
         const response = await axios.get('https://freefakeapi.io/authapi/posts?limit=10');
         setPosts(response.data);
       } catch (error) {
-        console.error('Ошибка при получении постов:', error);
+        console.error('Ошибка:', error);
       }
     };
 
