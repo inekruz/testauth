@@ -7,7 +7,10 @@ module.exports = function(app) {
       target: 'https://freefakeapi.io',
       changeOrigin: true,
       pathRewrite: {
-        '^/authapi': '/authapi',
+        '^/authapi': '',
+      },
+      headers: {
+        'Content-Type': 'application/json',
       },
     })
   );
