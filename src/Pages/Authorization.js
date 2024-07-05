@@ -11,11 +11,11 @@ function Authorization({ setUserAuthenticated }) {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('/authapi/login', {
+      const response = await axios.post('../netlify/functions/login', {
         username: data.login,
         password: data.password,
       });
-
+  
       const authToken = response.data.token;
       setToken(authToken);
       setAuthenticated(true);
@@ -25,6 +25,7 @@ function Authorization({ setUserAuthenticated }) {
       console.error('Ошибка:', error);
     }
   };
+  
 
   return (
     <div>
