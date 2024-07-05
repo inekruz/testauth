@@ -1,38 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #111111;
+}
+
 .App {
   text-align: center;
+  color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.containers_shadow {
+  box-shadow: 6px 4px 100px 0px rgba(0, 0, 0, 0.8);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+  border-radius: 20px;
+  background: rgba(65, 65, 65, 0.65);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  width: 250px;
+  margin: 10px;
+}
+input:focus {
+  outline: none;
+  border: 1px solid rgba(65, 65, 65, 0.8);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login {
+  width: 1440px;
+  height: 800px;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+
+.authorization_form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.authorization_form h1 {
+  margin-bottom: 50px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.authorization_form button {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  margin-top: 20px;
+  background-color: aqua;
+  border: none;
+  cursor: pointer;
 }
