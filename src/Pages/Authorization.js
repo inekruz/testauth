@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Импорт useNavigate вместо useHistory
 import '../App.css';
+import Main from './Main';
 
 function Authorization({ setUserAuthenticated }) {
   const { register, handleSubmit, reset } = useForm();
   const [token, setToken] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate(); // Использование useNavigate вместо useHistory
 
   const onSubmit = async (data) => {
     try {
@@ -23,7 +24,7 @@ function Authorization({ setUserAuthenticated }) {
       reset();
       setUserAuthenticated(true);
       localStorage.setItem('authToken', authToken);  // Сохранение токена в localStorage
-      history.push('/main');
+      navigate('/main'); // Использование navigate для навигации
     } catch (error) {
       console.error('Ошибка:', error);
     }
