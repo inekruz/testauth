@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; 
 import './App.css'; 
 import Authorization from './Pages/Authorization'; 
-import Main from './Pages/Main'; 
+import Main from './Pages/Main.js'; 
  
 function App() { 
  
