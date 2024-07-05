@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 function Main() {
-
   return (
     <div className="main containers_shadow">
-      Main
+      <h1>Главная</h1>
+      <Link to="/add-post">Добавить Пост</Link>
     </div>
   );
 }
