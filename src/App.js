@@ -4,6 +4,7 @@ import './App.css';
 import Authorization from './Pages/Authorization';
 import Main from './Pages/Main';
 import AddPost from './Pages/AddPost';
+import ShowPosts from './Pages/ShowPosts';
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<Authorization setUserAuthenticated={setAuthenticated} />} />
           <Route path="/main" element={authenticated ? <Main /> : <Navigate to="/login" />} />
           <Route path="/add-post" element={authenticated ? <AddPost /> : <Navigate to="/login" />} />
+          <Route path="/show-post" element={authenticated ? <ShowPosts /> : <Navigate to="/login" />} />
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </div>

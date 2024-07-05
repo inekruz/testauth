@@ -9,7 +9,14 @@ function AddPost() {
   const onSubmit = async (data) => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await axios.post('https://freefakeapi.io/authapi/posts', data, {
+      const postData = {
+        title: data.title,
+        content: data.content,
+        slug: 'default-slug',
+        picture: 'https://default-image-url.com',
+        user: 1 // Default user ID
+      };
+      const response = await axios.post('https://freefakeapi.io/authapi/posts', postData, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -46,38 +53,6 @@ function AddPost() {
             })}
           />
           {errors.content && <p>Содержимое не должно превышать 260 символов.</p>}
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Slug"
-            {...register("slug", {
-              required: true
-            })}
-          />
-          {errors.slug && <p>Slug обязателен.</p>}
-        </div>
-        <div>
-          <input
-            type="url"
-            placeholder="URL картинки"
-            {...register("picture", {
-              required: true,
-              pattern: /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/
-            })}
-          />
-          {errors.picture && <p>URL картинки обязателен и должен быть действительным URL.</p>}
-        </div>
-        <div>
-          <input
-            type="number"
-            placeholder="ID пользователя"
-            {...register("user", {
-              required: true,
-              min: 1
-            })}
-          />
-          {errors.user && <p>ID пользователя обязателен и должен быть положительным числом.</p>}
         </div>
         <button type="submit">Добавить</button>
       </form>

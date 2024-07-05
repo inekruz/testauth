@@ -12,6 +12,12 @@ body {
   color: #fff;
 }
 
+a {
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+}
+
 .containers_shadow {
   box-shadow: 6px 4px 100px 0px rgba(0, 0, 0, 0.8);
 }

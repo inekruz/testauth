@@ -7,6 +7,7 @@ function Main() {
     <div className="main containers_shadow">
       <h1>Главная</h1>
       <Link to="/add-post">Добавить Пост</Link>
+      <Link to="/add-post">Добавить Пост</Link>
     </div>
   );
 }
